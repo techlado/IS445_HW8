@@ -1,7 +1,6 @@
-const url = "https://thejsway-server.herokuapp.com/api/countries";
-
+//create travel info array
 const travelInfo = {
-  name: "Danielle Gonzalez",
+  name: "Danielle",
   countries: [
     {
       name: "Mexico",
@@ -23,8 +22,8 @@ const travelInfo = {
 };
 
 
-
-fetch(url, {
+//send JSON data to server
+fetch("https://thejsway-server.herokuapp.com/api/countries", {
   method: "POST",
   headers: {
     Accept: "application/json",
@@ -32,5 +31,12 @@ fetch(url, {
   },
   body: JSON.stringify(travelInfo)
 })
-.then()
-.catch()
+.then(response => response.text()
+)
+.then(result => {
+  document.getElementById("result").textContent = result;
+})
+.catch(error => {
+    console.error(error);
+  }
+);
