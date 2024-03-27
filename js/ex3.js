@@ -33,9 +33,7 @@ fetch("https://thejsway-server.herokuapp.com/api/countries", {
 })
 .then(response => response.text()
 )
-.then(result => {
-  document.getElementById("result").textContent = result;
-})
+.then(response => console.log(response))
 .catch(error => {
     console.error(error);
   }
